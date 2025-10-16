@@ -2,7 +2,7 @@
 const Task = require('../model/task');
 const { request } = require('express');
 
-async function createTask() {
+async function createTask(req) {
     try {
         const task = await Task.create(
             {
@@ -29,9 +29,9 @@ async function getTasks() {
     }
 }
 
-async function getTask(id) {
+async function getTask(req) {
     try {
-        const task = await Task.findById(id);
+        const task = await Task.findById(req.id);
         console.log('Find task by id:', task);
     }
     catch (err) {
@@ -39,9 +39,9 @@ async function getTask(id) {
     }
 }
 
-async function deleteTask(id) {
+async function deleteTask(req) {
     try {
-        const Task = await Task.deleteOne({ _id: id });
+        const Task = await Task.deleteOne({ _id: req.id });
         console.log('Delete task:', Task);
     }
     catch (err) {
