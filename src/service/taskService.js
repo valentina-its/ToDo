@@ -15,7 +15,7 @@ async function createTask(req) {
         return task;
     }
     catch (err) {
-        console.log('Errore durante la creazione del task:', err);
+        console.log('Error during task creation:', err);
         throw err;
     }
 }
@@ -27,7 +27,7 @@ async function getTasks() {
         return tasks;
     }
     catch (err) {
-        console.log('Errore durante il recupero dei task:', err);
+        console.log('Error during task retrieval:', err);
         throw err;
     }
 }
@@ -39,7 +39,7 @@ async function getTask(req) {
         return task;
     }
     catch (err) {
-        console.log('Errore durante il recupero del task:', err);
+        console.log('Error during task retrieval:', err);
         throw err;
     }
 }
@@ -60,10 +60,10 @@ async function updateTask(req) {
             console.log('Update task:', updatedTask);
             return updatedTask;
         }
-        throw new Error('Task non trovato');
+        throw new Error('Task not found');
     }
     catch (err) {
-        console.log('Errore durante l\'aggiornamento del task:', err);
+        console.log('Error during task update:', err);
         throw err;
     }
 }
@@ -78,10 +78,10 @@ async function deleteTask(req) {
             console.log('Delete task with id:', req.id);
             return true;
         }
-        throw new Error('Task non trovato');
+        throw new Error('Task not found');
     }
     catch (err) {
-        console.log('Errore durante l\'eliminazione del task:', err);
+        console.log('Error during task deletion:', err);
         throw err;
     }
 }
