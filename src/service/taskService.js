@@ -1,16 +1,20 @@
 // task service 
+const { Sequelize } = require('sequelize');
 const Task = require('../model/task');
 const { request } = require('express');
+const { Op } = Sequelize;
+
+Sequelize.sync();
 
 async function createTask(req) {
     try {
         const task = await Task.create(
             {
-                titolo: req.titolo,
-                descrizione: req.descrizione,
-                stato: req.stato,
-                dataScadenza: req.dataScadenza,
-                idUtente: req.idUtente
+                title: req.title,
+                description: req.description,
+                status: req.status,
+                dueDate: req.dueDate,
+                userId: req.userId
             });
         console.log('Create task:', task);
     }
