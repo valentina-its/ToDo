@@ -1,8 +1,14 @@
 const { Sequelize } = require('sequelize');
 
-const sequelize = new Sequelize('todo', 'username', 'password', {
-  host: 'localhost',
-  dialect: 'mysql'
+let con = mysql.createConnection({
+  host: "localhost",
+  user: "yourusername",
+  password: "yourpassword"
+});
+
+con.connect(function (err) {
+  if (err) throw err;
+  console.log("Connected!");
 });
 
 module.exports = sequelize;

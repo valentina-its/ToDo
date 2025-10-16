@@ -10,10 +10,10 @@ async function createTask(req) {
     try {
         const task = await Task.create(
             {
-                title: req.title,
-                description: req.description,
-                status: req.status,
-                dueDate: req.dueDate,
+                titolo: req.title,
+                descrizione: req.description,
+                stato: req.status,
+                scadenza: req.dueDate,
                 userId: req.userId
             });
         console.log('Create task:', task);
